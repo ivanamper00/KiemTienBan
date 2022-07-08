@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Kiếm tiền bán thời gian</string>
+    <string name="splash_screen">Splash Screen</string>
+    <string name="main_activity">Main Activity</string>
+</resources>
