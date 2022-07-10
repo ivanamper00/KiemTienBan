@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
+import tang.inis.kimtinbnthigian.utils.UiState
+import tang.inis.kimtinbnthigian.utils.isNetworkConnected
 
 class SplashActivity : AppCompatActivity() {
 
@@ -14,24 +17,38 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        viewModel.urlResponse.observe(this){
-            if(it.code == "0"){
-                Log.d("JumpCode", it.data?.jumpAddress ?: "")
-                if(it.data?.jump == true){
-                    startActivity(WebViewActivity.createIntent(this, it.data.jumpAddress ?: ""))
-                    finish()
-                }else {
-                    startActivity(MainActivity.createIntent(this))
-                    finish()
+        viewModel.urlResponse.observe(this){ state ->
+            when(state){
+                is UiState.Success -> {
+                    if(state.data.code == "0"){
+                        Log.d("JumpCode", state.data.data?.jumpAddress ?: "")
+                        if(state.data.data?.jump == true){
+                            toNextActivity(state.data.data.jumpAddress)
+                        }else {
+                            toNextActivity()
+                        }
+                    }else errorHandling(state.data.msg)
                 }
-            }else {
-                Log.d("Error", it.msg ?: "")
+                is UiState.Error -> errorHandling(state.exception.localizedMessage ?: "")
             }
         }
 
-        viewModel.errorResponse.observe(this){
-            Log.d("Error", it.localizedMessage ?: "")
-        }
-        viewModel.getJumpUrl("123456")
+        if(isNetworkConnected()) viewModel.getJumpUrl("123456")
+        else toNoInternetActivity()
+    }
+
+    private fun toNextActivity(url: String? = null){
+        startActivity(WebViewActivity.createIntent(this, url ?: "https://www.savethestudent.org/make-money/10-quick-cash-injections.html" ))
+        finish()
+    }
+
+    private fun errorHandling(message: String){
+        Log.d("Error", message)
+        toNextActivity()
+    }
+
+    private fun toNoInternetActivity(){
+        startActivity(NoInternetActivity.createIntent(this))
+        finish()
     }
 }

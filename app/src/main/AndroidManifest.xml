@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tang.inis.kimtinbnthigian">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -18,7 +19,11 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".NoInternetActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
+            android:theme="@style/splashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

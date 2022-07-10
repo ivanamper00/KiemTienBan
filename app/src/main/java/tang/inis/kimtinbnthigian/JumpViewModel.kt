@@ -10,18 +10,15 @@ import kotlinx.coroutines.launch
 import tang.inis.kimtinbnthigian.retrofit.JumpServiceImp
 import tang.inis.kimtinbnthigian.retrofit.RequestModel
 import tang.inis.kimtinbnthigian.retrofit.ResponseModel
+import tang.inis.kimtinbnthigian.utils.UiState
 
 class JumpViewModel: ViewModel() {
 
     private val repo = JumpServiceImp()
 
-    private val _urlResponse = MutableLiveData<ResponseModel>()
-    val urlResponse : LiveData<ResponseModel>
+    private val _urlResponse = MutableLiveData<UiState<ResponseModel>>()
+    val urlResponse : LiveData<UiState<ResponseModel>>
         get() = _urlResponse
-
-    private val _errorResponse = MutableLiveData<Throwable>()
-    val errorResponse : LiveData<Throwable>
-        get() = _errorResponse
 
     fun getJumpUrl(packageName: String){
         val param = RequestModel(
@@ -29,9 +26,9 @@ class JumpViewModel: ViewModel() {
         )
         viewModelScope.launch {
             repo.getJumpCodeUrl(param)
-                .catch { err -> _errorResponse.value = err }
+                .catch { err -> _urlResponse.value = UiState.Error(err) }
                 .collectLatest {
-                    _urlResponse.value = it
+                    _urlResponse.value = UiState.Success(it)
                 }
         }
     }

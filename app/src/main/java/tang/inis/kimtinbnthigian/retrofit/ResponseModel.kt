@@ -1,5 +1,8 @@
 package tang.inis.kimtinbnthigian.retrofit
 
+import androidx.annotation.Keep
+
+@Keep
 data class ResponseModel(
     val code: String,
     val msg: String,
