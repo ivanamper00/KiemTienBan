@@ -27,13 +27,13 @@ class SplashActivity : AppCompatActivity() {
                         }else {
                             toNextActivity()
                         }
-                    }else errorHandling(state.data.msg)
+                    }else errorHandling(state.data.msg ?: "")
                 }
                 is UiState.Error -> errorHandling(state.exception.localizedMessage ?: "")
             }
         }
 
-        if(isNetworkConnected()) viewModel.getJumpUrl("123456")
+        if(isNetworkConnected()) viewModel.getJumpUrl(packageName)
         else toNoInternetActivity()
     }
 
