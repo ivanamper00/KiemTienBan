@@ -101,10 +101,10 @@ class JumpWebView(context: Context, attrs: AttributeSet): WebView(context,attrs)
 
         binding.wvContent.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
-                binding.pbLoading.progress = newProgress
                 if (newProgress == 100) {
                     binding.wvContent.settings.blockNetworkImage = false
-                }
+                    binding.pbLoading.visibility = View.GONE
+                }else  binding.pbLoading.visibility = View.VISIBLE
             }
 
             override fun onCreateWindow(
@@ -212,16 +212,8 @@ class JumpWebView(context: Context, attrs: AttributeSet): WebView(context,attrs)
                         context.startActivity(intent)
                     } catch (e: Exception) {
                         when(e){
-                            is ActivityNotFoundException -> {
-                                val parsedUrl = Uri.parse(url)
-                                val newUri = Uri.parse(url.replace("${parsedUrl.scheme}://", "https://"))
-                                val intent = Intent(Intent.ACTION_VIEW, newUri)
-                                context.startActivity(intent)
-
-                            }
-                            else -> {
-                                Toast.makeText(context, "Jump failed", Toast.LENGTH_SHORT).show()
-                            }
+                            is ActivityNotFoundException -> handleUrlException(url)
+                            else -> Toast.makeText(context, "Jump failed", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -237,6 +229,20 @@ class JumpWebView(context: Context, attrs: AttributeSet): WebView(context,attrs)
                 }
             }
             false
+        }
+    }
+
+    private fun handleUrlException(url: String) {
+        try{
+            val parsedUrl = Uri.parse(url)
+            val builder = Uri.Builder()
+            builder.scheme("https")
+            builder.authority(parsedUrl.authority)
+            builder.path(parsedUrl.path)
+            val intent = Intent(Intent.ACTION_VIEW, builder.build())
+            context.startActivity(intent)
+        }catch (e: Exception){
+            Toast.makeText(context, "Link failed", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -296,7 +302,7 @@ class JumpWebView(context: Context, attrs: AttributeSet): WebView(context,attrs)
     }
 
     override fun canGoBack(): Boolean {
-       return binding.wvContent.canGoBack()
+        return binding.wvContent.canGoBack()
     }
 
     override fun goBack() {
