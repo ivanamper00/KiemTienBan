@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import android.app.AlertDialog
 import android.content.Context
@@ -6,7 +6,7 @@ import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.core.content.ContextCompat
-import tang.inis.kimtinbnthigian.utils.Constants
+import pang.alawa.kimtinbnthigian.utils.Constants
 
 class PermissionHelper(context: Context): ContextWrapper(context) {
 

@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian.retrofit
+package pang.alawa.kimtinbnthigian.retrofit
 
 import okhttp3.OkHttpClient
 import okhttp3.Request

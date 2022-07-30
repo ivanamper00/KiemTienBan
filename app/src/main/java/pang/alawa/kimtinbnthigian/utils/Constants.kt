@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian.utils
+package pang.alawa.kimtinbnthigian.utils
 
 import android.Manifest
 

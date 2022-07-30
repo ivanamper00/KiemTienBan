@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tang.inis.kimtinbnthigian">
+    package="pang.alawa.kimtinbnthigian">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -15,13 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KiếmTiềnBánThờiGian">
         <activity
-            android:name=".WebViewActivity"
+            android:name="pang.alawa.kimtinbnthigian.WebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".NoInternetActivity"
+            android:name="pang.alawa.kimtinbnthigian.NoInternetActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name="pang.alawa.kimtinbnthigian.SplashActivity"
             android:theme="@style/splashScreen"
             android:exported="true">
             <intent-filter>

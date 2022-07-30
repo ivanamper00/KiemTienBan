@@ -1,6 +1,4 @@
-package tang.inis.kimtinbnthigian.utils
-
-import java.lang.Exception
+package pang.alawa.kimtinbnthigian.utils
 
 sealed class UiState<out T> {
     data class Success<out T>(val data: T): UiState<T>()

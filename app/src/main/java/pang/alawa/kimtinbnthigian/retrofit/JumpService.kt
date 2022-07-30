@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian.retrofit
+package pang.alawa.kimtinbnthigian.retrofit
 
 import retrofit2.http.Body
 import retrofit2.http.POST

@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import android.content.Context
 import android.content.Intent

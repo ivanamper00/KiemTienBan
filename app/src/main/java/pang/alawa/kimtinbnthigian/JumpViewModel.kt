@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,10 +7,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import tang.inis.kimtinbnthigian.retrofit.JumpServiceImp
-import tang.inis.kimtinbnthigian.retrofit.RequestModel
-import tang.inis.kimtinbnthigian.retrofit.ResponseModel
-import tang.inis.kimtinbnthigian.utils.UiState
+import pang.alawa.kimtinbnthigian.retrofit.JumpServiceImp
+import pang.alawa.kimtinbnthigian.retrofit.RequestModel
+import pang.alawa.kimtinbnthigian.retrofit.ResponseModel
+import pang.alawa.kimtinbnthigian.utils.UiState
 
 class JumpViewModel: ViewModel() {
 

@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -21,7 +21,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import tang.inis.kimtinbnthigian.databinding.CustomJumpWebViewBinding
+import pang.alawa.kimtinbnthigian.databinding.CustomJumpWebViewBinding
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream

@@ -1,12 +1,12 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import com.google.gson.Gson
-import tang.inis.kimtinbnthigian.utils.UiState
-import tang.inis.kimtinbnthigian.utils.isNetworkConnected
+import pang.alawa.kimtinbnthigian.R.*
+import pang.alawa.kimtinbnthigian.utils.UiState
+import pang.alawa.kimtinbnthigian.utils.isNetworkConnected
 
 class SplashActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContentView(layout.activity_splash)
 
         viewModel.urlResponse.observe(this){ state ->
             when(state){

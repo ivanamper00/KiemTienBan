@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import org.junit.Test
 

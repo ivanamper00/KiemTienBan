@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian
+package pang.alawa.kimtinbnthigian
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import tang.inis.kimtinbnthigian.databinding.ActivityWebviewBinding
+import pang.alawa.kimtinbnthigian.databinding.ActivityWebviewBinding
 import kotlin.system.exitProcess
 
 class WebViewActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package tang.inis.kimtinbnthigian.utils
+package pang.alawa.kimtinbnthigian.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
